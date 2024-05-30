@@ -1,0 +1,284 @@
+/* Global styles */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: "Manuale", serif;
+    box-sizing: border-box;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    position: relative;
+    background-image: url(https://wallpapers.com/images/hd/nico-robin-1920-x-1080-wallpaper-9it4fwixmnacbcio.jpg);
+    color: rgba(150, 126, 118, 1);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure body is at least full viewport height */
+    margin: 0; /* Remove default body margin */
+}
+
+.navbar {
+    z-index: 9999;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and transparency here */
+    pointer-events: none; /* Allows clicks to pass through the overlay */
+    z-index: 1; /* Ensure it's below the content */
+}
+
+body * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Center and round the profile image */
+.profile-image-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgba(173, 136, 198, 0.8)); /* Add a drop shadow effect */
+}
+
+.profile-image-container img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.floral-border {
+    position: absolute;
+    top: 53%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Adjust the width to match the floral border size */
+    height: 120px; /* Adjust the height to match the width for a circular border */
+    z-index: 4;
+    pointer-events: none;
+}
+
+.profile-image-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Adjust the width to match the floral border size */
+    height: 120px; /* Adjust the height to match the floral border size */
+    border-radius: 100%;
+    border: 2px solid rgba(193, 182, 212, 0.8);
+    box-shadow: 0 0 100px rgba(173, 136, 198, 0.8);
+    animation: glowing-border 3s ease-in-out infinite;
+}
+
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 10px rgba(173, 136, 198, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.8);
+  }
+}
+
+.profile-image-container::before {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.floral-border {
+    width: 190px !important; /* Adjust the width to your desired size */
+    height: 150px !important; /* Adjust the height to your desired size */
+}
+
+.profile-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.offcanvas-header .btn-close {
+    position: absolute;
+    top: -220px;
+    right: 0;
+    margin-top: 30px; /* Adjust the margin as needed */
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.offcanvas-body {
+    text-align: center;
+}
+
+.offcanvas {
+    background-color: rgba(26, 19, 40);
+    color: #bf7789;
+}
+
+.offcanvas-body .nav-link {
+    color: #bf7789; /* Text color */
+}
+
+.offcanvas-body .nav-link:hover {
+    color: #c1b6d4; /* Hover color */
+}
+
+.navbar {
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.pagination .page-link {
+    color: #bf7789;
+    border-color: #bf7789;
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(193, 182, 212, 0.2);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgba(173, 136, 198, 0.2);
+    color: #f1dfda;
+    border-color: #bf7789;
+}
+
+.text-box-container {
+    position: relative;
+    display: inline-block; /* Ensures the container only takes up the space it needs */
+}
+
+.meme-image {
+    position: absolute;
+    width: 400px; /* Small width */
+    height: auto; /* Maintain aspect ratio */
+    left: 60%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 2; /* Ensure it's above the text box */
+    transition: width 0.5s, height 0.5s; /* Smooth transition */
+}
+
+.meme-image {
+    position: absolute;
+    width: 400px; /* Small width */
+    height: auto; /* Maintain aspect ratio */
+    left: 53%; /* Center horizontally */
+    transform: translateX(-50%) scaleX(1); /* Center horizontally and original scale */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 2; /* Ensure it's above the text box */
+    transition: width 0.5s, height 0.5s; /* Smooth transition */
+}
+
+.text-box-container:hover .meme-image {
+    width: 100px; /* Resized width on hover */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 3; /* Ensure it's above the text box and any other content */
+    transform: translateX(-50%) scaleX(-1); /* Mirror image horizontally on hover */
+}
+
+
+.text-box-container:hover .meme-image {
+    width: 100px; /* Resized width on hover */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 3; /* Ensure it's above the text box and any other content */
+}
+
+
+/*nico image */
+
+.nico-image {
+    position: absolute;
+    width: 400px; /* Small width */
+    height: auto; /* Maintain aspect ratio */
+    left: 5%; /* Center horizontally */
+    transform: translateX(-50%) scaleX(1); /* Center horizontally and original scale */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 2; /* Ensure it's above the text box */
+    transition: width 0.5s, height 0.5s; /* Smooth transition */
+}
+
+.text-box-container:hover .nico-image {
+    width: 100px; /* Resized width on hover */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 3; /* Ensure it's above the text box and any other content */
+    transform: translateX(-50%) scaleX(-1); /* Mirror image horizontally on hover */
+}
+
+
+.text-box{
+    color: white;
+}
+
+.text-box {
+    width: 90%;
+    color: #f1dfda;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+    margin-top: 50px; /* Adjust the margin-top value to move the text box down */
+    margin-bottom: 20px;
+    display: inline-block;
+    margin: 0 auto;
+    border: 0 auto;
+    font-size: 17px;
+    color: #f1dfda;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 5px #1c0a81, 0 0 10px #1c0a81, 0 0 20px #1c0a81, 0 0 40px #0d1c2b, 0 0 80px #0d1c2b, 0 0 90px #0d1c2b, 0 0 100px #0d1c2b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
+    color: #f1dfda; 
+}
+
+
+.text-box h1 {
+    font-size: 62px;
+    color: #f1dfda;
+    text-shadow: 0 0 5px #1c0a81, 0 0 10px #1c0a81, 0 0 20px #9e688a, 0 0 40px #0d1c2b, 0 0 80px #0d1c2b, 0 0 90px #0d1c2b, 0 0 100px #0d1c2b;
+}
+
+.text-box h1, .text-box p{
+    z-index: -1;
+}
+
+
+.text-box p{
+    display: inline-block;
+    margin: 0 auto;
+    border: 0 auto;
+    font-size: 17px;
+    color: #f1dfda;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 5px #1c0a81, 0 0 10px #1c0a81, 0 0 20px #1c0a81, 0 0 40px #0d1c2b, 0 0 80px #0d1c2b, 0 0 90px #0d1c2b, 0 0 100px #0d1c2b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
+    color: #f1dfda; 
+}
+
+
+

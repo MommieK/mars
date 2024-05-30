@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f82cb84bd7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Modify the background color */
+        .navbar-custom {
+            background-color: rgba(5, 5, 5, 0.8);
+        }
+
+        /* Modify brand and text color */
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: 189, 7, 120;
+        }
+
+        /* Global styles */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: "Manuale", serif;
+    box-sizing: border-box;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar {
+    z-index: 3; /* Ensure navbar is above the overlay */
+}
+
+body {
+    background: #bf7789;
+    color: #bf7789;
+}
+
+body {
+    position: relative;
+    background-image: url(https://4kwallpapers.com/images/wallpapers/nico-robin-one-piece-pink-background-minimal-art-3440x1440-7974.png);
+    color: rgba(150, 126, 118, 1);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure body is at least full viewport height */
+    margin: 0; /* Remove default body margin */
+    color: #bf7789;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and transparency here */
+    pointer-events: none; /* Allows clicks to pass through the overlay */
+    z-index: -2;
+}
+
+
+/* Center and round the profile image */
+.profile-image-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgba(173, 136, 198, 0.8)); /* Add a drop shadow effect */
+}
+
+.profile-image-container img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.floral-border {
+    position: absolute;
+    top: 53%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Adjust the width to match the floral border size */
+    height: 120px; /* Adjust the height to match the width for a circular border */
+    z-index: 4;
+    pointer-events: none;
+}
+
+.profile-image-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Adjust the width to match the floral border size */
+    height: 120px; /* Adjust the height to match the floral border size */
+    border-radius: 100%;
+    border: 2px solid rgba(193, 182, 212, 0.8);
+    box-shadow: 0 0 100px rgba(173, 136, 198, 0.8);
+    animation: glowing-border 3s ease-in-out infinite;
+}
+
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 10px rgba(173, 136, 198, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.8);
+  }
+}
+
+.profile-image-container::before {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.floral-border {
+    width: 190px !important; /* Adjust the width to your desired size */
+    height: 150px !important; /* Adjust the height to your desired size */
+}
+
+.profile-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.offcanvas-header .btn-close {
+    position: absolute;
+    top: -220px;
+    right: 0;
+    margin-top: 30px; /* Adjust the margin as needed */
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.offcanvas-body {
+    text-align: center;
+}
+
+.offcanvas {
+    background-color: rgba(26, 19, 40);
+    color: #bf7789;
+}
+
+.offcanvas-body .nav-link {
+    color: #bf7789; /* Text color */
+}
+
+.offcanvas-body .nav-link:hover {
+    color: #c1b6d4; /* Hover color */
+}
+
+.navbar {
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.pagination .page-link {
+    color: #bf7789;
+    border-color: #bf7789;
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(193, 182, 212, 0.2);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgba(173, 136, 198, 0.2);
+    color: #bf7789;
+    border-color: #bf7789;
+}
+
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-title {
+  text-align: center;
+}
+
+.heart-icons {
+  text-align: center;
+  margin-bottom: 20px; /* Optional: Add margin bottom for spacing */
+}
+
+.other-list {
+   text-align: center;
+  margin-bottom: 20px;
+}
+
+#others {
+    padding: 30px 0;
+}
+
+.others-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-color: #bf7789;
+}
+
+.others-list div {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.others-list div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image fill the entire div */
+    height: 100%; /* Make the image fill the entire div */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: opacity 0.5s; /* Fade in transition */
+}
+
+.others-list div:hover img {
+    opacity: 0.5; /* Show the image on hover */
+}
+
+.others-list div p{
+    font-size: 15px;
+    margin: auto;
+}
+
+.others-list div i{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.others-list div h2{
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.others-list div a{
+    text-decoration: none;
+    color: #bf7789;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 30px; /* Add a semicolon here */
+    display: inline-block;
+}
+
+.others-list div:hover {
+    background: #244868;
+    transform: translateY(-5px);
+}
+
+/* Apply the neon glow effect on hover */
+.others-list div:hover {
+    box-shadow: 0 0 5px #bf7789, 0 0 10px #bf7789, 0 0 15px #c1b6d4, 0 0 20px #c1b6d4, 0 0 35px #bf7789, 0 0 40px #0d1c2b, 0 0 50px #c1b6d4, 0 0 75px #c1b6d4;
+}
+
+.badge {
+    padding: 10px 20px;
+    background-color: #bf7789;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    position: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);        
+}
+
+.badge:hover {
+    background-color: #c1b6d4;
+    cursor: pointer;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="profile-image-container">
+                <img src="https://i.pinimg.com/originals/43/44/c3/4344c34c52428b4f492add4bc8036e6a.gif" alt="Animated Gif" data-toggle="tooltip" data-placement="bottom" title="Nico Robin">
+                <img class="floral-border" src="images/floral-border.png" alt="Floral Border">
+            </div>
+            <div class="profile-name" data-toggle="tooltip" data-placement="bottom" title=" The Owner">Marajoanabel Gascon Ebaña</div>
+            <h5 class="offcanvas-title text-center" id="offcanvasNavbarLabel">Welcome</h5>
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="lab67.html" data-toggle="tooltip" data-placement="bottom" title="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="table1.html" data-toggle="tooltip" data-placement="bottom" title="Table">Table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="image1.html" data-toggle="tooltip" data-placement="bottom" title="Images">Images</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact1.html" data-toggle="tooltip" data-placement="bottom" title="My Contacts">Contact</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search" style="background-color: rgba(173, 136, 198, 0.1);">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(150, 126, 118, 0.3);">
+                    <button class="btn btn-outline-light" type="submit" style="background-color: rgba(172, 112, 136, 0.3);">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Tab Contents -->
+<!-- Others Section -->
+<div id="others">
+    <div class="container">
+        <i class="far fa-heart"></i><i class="far fa-heart"></i><i class="far fa-heart"></i>
+        <h1 class="sub-title">Others</h1>
+        <div class="others-list">
+            <div>
+                <i class="fas fa-book"></i>
+                <h2>Nico Robin</h2>
+                <p>My Beautiful Flower.
+                <br> My Lady Flower.
+                    <br> A Paradise beyond reach.</p>
+                <img src="images/jiji.gif" class="hidden-image" alt="Robin Image">
+            </div>
+            <div>
+                <i class="far fa-heart"></i>
+                <h2>My Flower Devil</h2>
+                <p>My Gorgeous Maiden.
+                <br>My Devil Child.
+                <br>My Hana</p>
+                <img src="images/flower.gif" class="hidden-image" alt="Robin Image">
+            </div>
+            <div>
+                <i class="fas fa-film"></i>
+                <h2>Strawhat Pirates</h2>
+                <p>Mugiwara Pirate.
+                <br>A Home.
+                <br>Family.</p>
+                <img src="images/straw.gif" class="hidden-image" alt="Straw Image">
+            </div>
+    </div>
+</div>
+</div>
+
+
+    
+
+<div id="mine">
+    <div class="container">
+        <h1 class="sub-title"><i class="far fa-heart"></i> MINE <i class="
+far fa-heart"></i></h1>
+<div class="heart-icons">
+<i class="far fa-heart"></i> <i class="far fa-heart"></i> <i class="far fa-heart"></i>
+</div>
+<div class="badge">Images 3</div>
+
+            <div class="others-list">
+        <div>
+            <i class="far fa-heart"></i>
+            <h2>Nico Robin</h2>
+            <p>MY.
+            <br>FLOWER.
+            <br>DEVIL.</p>
+            <img src="images/bebe.gif" class="hidden-image" alt="Robin Chan Image">
+        </div>
+        <div>
+            <i class="far fa-heart"></i>
+            <h2>Nico Robin</h2>
+            <p>HOT.
+            <br>DEVIL FRUIT.
+            <br>EATER.</p>
+            <img src="images/robin.gif" class="hidden-image" alt="Robin Image">
+        </div>
+        <div>
+            <i class="far fa-heart"></i>
+            <h2>Nico Robin</h2>
+            <p>MY.
+            <br>ROBIN.
+            <br>CHAWN</p>
+            <img src="images/baby.gif" class="hidden-image" alt="Nico Image">
+        </div>
+    </div>
+</div>
+</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled" id="firstPage">
+            <a class="page-link" href="#" aria-label="First" tabindex="-1" aria-disabled="true"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
+        <li class="page-item disabled" id="previousPage">
+            <a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><span aria-hidden="true">&laquo;</span></a>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="table1.html">2</a></li>
+        <li class="page-item"><a class="page-link" href="image1.html">3</a></li>
+        <li class="page-item"><a class="page-link" href="contact1.html">4</a></li>
+        <li class="page-item" id="nextPage">
+            <a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+        </li>
+        <li class="page-item" id="lastPage">
+            <a class="page-link" href="contact1.html" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        </li>
+    </ul>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
