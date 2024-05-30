@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f82cb84bd7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <style>
+        /* Modify the background color */
+.navbar-custom {
+    background-color: rgba(5, 5, 5, 0.5);
+}
+        /* Modify brand and text color */
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: #090909;
+        }
+
+            /* Global styles */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: "Manuale", serif;
+    box-sizing: border-box;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    position: relative;
+    background-image: url(https://i.pinimg.com/originals/74/be/41/74be41e91f7df6a76cf8be5f14e1da26.jpg);
+    color: rgba(150, 126, 118, 1);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure body is at least full viewport height */
+    margin: 0; /* Remove default body margin */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and transparency here */
+    pointer-events: none; /* Allows clicks to pass through the overlay */
+    z-index: -2;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-custom {
+    background-color: rgb(55, 47, 97, 0.3); /* Update to your desired color */
+}
+
+
+
+/* Custom styles for the table */
+
+        h2 {
+            text-align: center;
+            margin-top: 15px;
+            color: #bf7789; 
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 100px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: lavender;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid ;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: rgba(150, 126, 118, 0.5);
+        }
+
+        .highlight {
+            background-color: #e8f4f8 !important;
+        }
+
+        tr:hover td {
+            background-color: rgba(150, 126, 118, 1);
+        }
+
+tr {
+            background-color: #f9f9f9;
+
+        }
+
+        /* Hover effect */
+        tr:hover td {
+            background-color: rgba(173, 136, 198, 0.2);
+        }
+
+
+/* Center and round the profile image */
+.profile-image-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgba(173, 136, 198, 0.8)); /* Add a drop shadow effect */
+}
+
+.profile-image-container img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.floral-border {
+    position: absolute;
+    top: 53%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Adjust the width to match the floral border size */
+    height: 120px; /* Adjust the height to match the width for a circular border */
+    z-index: 4;
+    pointer-events: none;
+}
+
+.profile-image-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Adjust the width to match the floral border size */
+    height: 120px; /* Adjust the height to match the floral border size */
+    border-radius: 100%;
+    border: 2px solid rgba(193, 182, 212, 0.8);
+    box-shadow: 0 0 150px rgba(173, 136, 198, 0.8);
+    animation: glowing-border 3s ease-in-out infinite;
+}
+
+
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 10px rgba(173, 136, 198, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.8);
+  }
+}
+
+.profile-image-container::before {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.floral-border {
+    width: 190px !important; /* Adjust the width to your desired size */
+    height: 150px !important; /* Adjust the height to your desired size */
+}
+
+.profile-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.offcanvas-header .btn-close {
+    position: absolute;
+    top: -220px;
+    right: 0;
+    margin-top: 30px; /* Adjust the margin as needed */
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.offcanvas-body {
+    text-align: center;
+}
+
+.offcanvas {
+    background-color: rgba(26, 19, 40);
+    color: #bf7789;
+}
+
+.offcanvas-body .nav-link {
+    color: #bf7789; /* Text color */
+}
+
+.offcanvas-body .nav-link:hover {
+    color: #c1b6d4; /* Hover color */
+}
+
+.navbar {
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.pagination .page-link {
+    color: #bf7789;
+    border-color: #bf7789;
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(193, 182, 212, 0.2);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgba(173, 136, 198, 0.2);
+    color: #bf7789;
+    border-color: #bf7789;
+}
+
+.col-lg-6 {
+    width: 1000px !important; /* Adjust the width to your desired size */
+    height: 300px !important; /* Adjust the height to your desired size */;
+    align:center;
+}
+
+    </style>
+<body>
+
+<nav class="navbar navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="profile-image-container">
+                <img src="https://i.pinimg.com/originals/43/44/c3/4344c34c52428b4f492add4bc8036e6a.gif" alt="Animated Gif" data-toggle="tooltip" data-placement="bottom" title="Nico Robin">
+                <img class="floral-border" src="images/floral-border.png" alt="Floral Border">
+            </div>
+            <div class="profile-name" data-toggle="tooltip" data-placement="bottom" title=" The Owner">Marajoanabel Gascon Ebaña</div>
+            <h5 class="offcanvas-title text-center" id="offcanvasNavbarLabel">Welcome</h5>
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="lab67.html" data-toggle="tooltip" data-placement="bottom" title="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="table1.html" data-toggle="tooltip" data-placement="bottom" title="Table">Table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="image1.html" data-toggle="tooltip" data-placement="bottom" title="Images">Images</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact1.html" data-toggle="tooltip" data-placement="bottom" title="My Contacts">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group">
+                             <button type="button" class="btn btn-light" style="background-color: rgba(173, 136, 198, 0.1)">Chart Types<span class="caret"></span></button>
+                            <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" style="background-color: rgba(191, 119, 137, 0.2);">
+                                <li><a class="dropdown-item" href="#" onclick="changeChartType('bar')">Bar Chart</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="changeChartType('line')">Line Chart</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="changeChartType('pie')">Pie Chart</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search" style="background-color: rgba(173, 136, 198, 0.1);">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(150, 126, 118, 0.3);">
+                    <button class="btn btn-outline-light" type="submit" style="background-color: rgba(172, 112, 136, 0.3);">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <canvas id="myChart"></canvas>
+            <canvas id="pieChart"></canvas>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+</div>
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled" id="firstPage">
+            <a class="page-link" href="#" aria-label="First" tabindex="-1" aria-disabled="true"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
+        <li class="page-item disabled" id="previousPage">
+            <a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><span aria-hidden="true">&laquo;</span></a>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="table/table.html">2</a></li>
+        <li class="page-item"><a class="page-link" href="image/image.html">3</a></li>
+        <li class="page-item"><a class="page-link" href="contact/contact.html">4</a></li>
+        <li class="page-item" id="nextPage">
+            <a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+        </li>
+        <li class="page-item" id="lastPage">
+            <a class="page-link" href="contact/contact.html" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        </li>
+    </ul>
+</nav>
+
+    
+    <div class="container">
+        <h2> Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Jemmy</td>
+                    <td>Rox</td>
+                    <td>ICT</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Regine</td>
+                    <td>Belladon</td>
+                    <td>HRM</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Miyuki</td>
+                    <td>Baltazar</td>
+                    <td>COM SCI</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Kulay</td>
+                    <td>Atienza</td>
+                    <td>Engineer</td>
+                </tr>
+                <tr class="highlight">
+                    <td>5</td>
+                    <td colspan="2">Lily Flour</td>
+                    <td>PE</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+/********** Template CSS **********/
+
+    /* Global styles */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: "Manuale", serif;
+    box-sizing: border-box;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.text-primary {
+    color: #c1b6d4 !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #c077a0;
+    border-color: #a99bbf;
+}
+
+.btn-primary:hover {
+    color: #364b65;
+    background-color: #bf7789;
+    border-color: #c1b6d4;
+}
+
+.bg-secondary {
+    background-color: #1a172a !important;
+}
+
+.bg-dark {
+    background-color: #bca1c3 !important;
+}
+
+
+body {
+    background-color: #ae94ae;
+}
+
+
+a {
+    color: #ae94ae;
+    text-decoration: none;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+
+/*** Layout ***/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #605977;
+    transition: 0.5s;
+    z-index: 999;
+}
+
+.content {
+    margin-left: 250px;
+    min-height: 100vh;
+    background: #605977;
+    transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        margin-left: 0;
+    }
+
+    .sidebar.open {
+        margin-left: -250px;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+    }
+
+    .content.open {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+
+    .sidebar.open {
+        margin-left: 0;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 7px 20px;
+    color: #d5b7d7;
+    font-weight: 500;
+    border-left: 3px solid #605977;
+    border-radius: 0 30px 30px 0;
+    outline: none;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: #c1b6d4;
+    background: #bf7789;
+    border-color: #c1b6d4;
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #605977;
+    border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: #605977;
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+    padding-left: 25px;
+    border-radius: 0 30px 30px 0;
+    color: #c1b6d4;
+}
+
+.sidebar .navbar .dropdown-item:hover,
+.sidebar .navbar .dropdown-item.active {
+    background: #41517e;
+}
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: #bf7789;
+    outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+    color: #605977;
+}
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #b3a1cf;
+    border-radius: 40px;
+}
+
+.content .navbar .dropdown-item {
+    color: #605977;
+}
+
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+    background: #c1b6d4;
+}
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}
+
+
+/*** Date Picker ***/
+.bootstrap-datetimepicker-widget.bottom {
+    top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+    border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+    font-weight: 500;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+    background: #bf7789;
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+    border-bottom-color: #c1b6d4;
+}
+
+
+/*** Testimonial ***/
+.progress .progress-bar {
+    width: 0px;
+    transition: 2s;
+}
+
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 5px solid #c1b6d4;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: #c1b6d4;
+    border-color: #bf7789;
+}
+
+.container {
+  background: #1a172a;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #b3a1cf;
+  width: 80%;
+}
+
+.contact-left {
+    flex-basis: 35%;
+    margin-top: 80px;
+}
+
+.contact-right {
+    flex-basis: 65%; /* Adjusted to 65% to give more space to the contact form */
+}
+
+.contact-left p {
+    margin-top: 30px;
+}
+
+.contact-left p i {
+    color: #ddd971;
+    margin-right: 15px;
+    font-size: 25px;
+}
+
+.social-icons {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #bf7789;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #bf7789;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+    color: #c1b6d4;
+    transform: translateY(-5px);
+}
+
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: babyblue;
+    border: 1px solid #c1b6d4;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 13px;
+    background-color: #bf7789;
+    position: relative;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    border: 1px solid #bf7789;
+    background: #b3a1cf;
+    transition: 1s;
+}
+
+.contact-right form {
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 10px #b3a1cf;
+}
+
+/* Adjust the width of input and textarea elements */
+form input,
+form textarea {
+    width: 100%; /* Change to 100% to fill the entire width of the contact form */
+    border: 0;
+    outline: none;
+    background: rgba(150, 126, 118, 0.3);
+    padding: 10px;
+    margin: 15px 0;
+    color: rgba(150, 126, 118, 1);
+    font-size: 18px;
+    border-radius: 6px;
+    border-bottom: 1px solid #bf7789;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6C7293;
+    background-color: #6C7293;
+    background-clip: padding-box;
+    border: 1px solid #ae94ae;
+    appearance: none;
+    border-radius: 5px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-check-input:checked {
+    background-color: #bf7789;
+    border-color: #ae94ae;
+}
+
+
+/* ----------about---------- */
+
+#about{
+    padding: 80px 0;
+    background-image: url(img/pirate.jpg);
+    color: rgb(93, 75, 106);
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1{
+    flex-basis: 35%;
+}
+
+.about-col-1 img{
+    width: 70%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.about-col-1 img {
+    width: 70%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10); /* Add a shadow */
+}
+
+
+.about-col-2{
+    flex-basis: 60%;
+    color: #ADD8E6;
+    display: inline-block;
+    margin: 0 auto;
+    border: 3px auto;
+    border-color: #ADD8E6;
+    font-size: 17px;
+    color: #254764;
+    background-color: #533b624a;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
+    color: #c1b6d4; 
+    
+}
+.sub-title{
+    font-size: 50px;
+    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 0 0 5px #bf7789, 0 0 10px #bf7789, 0 0 15px #c1b6d4, 0 0 20px #c1b6d4, 0 0 35px #bf7789, 0 0 40px #0d1c2b, 0 0 50px #c1b6d4, 0 0 75px #c1b6d4;
+}
+
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #bf7789;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transition: width 0.5s;
+}
+
+.tab-links.active-link::after{
+    width: 50%;
+}
+
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.tab-contents ul li span{
+    color: #FFFFF0;
+    font-size: 25px;
+    text-shadow: 0 0 5px #bf7789, 0 0 10px #bf7789, 0 0 15px #c1b6d4, 0 0 20px #c1b6d4, 0 0 35px #bf7789, 0 0 40px #0d1c2b, 0 0 50px #c1b6d4, 0 0 75px #c1b6d4;
+}
+
+.tab-contents{
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display: block;
+}
+
+
+
+
+/*** Others ***/
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-title {
+  text-align: center;
+}
+
+.heart-icons {
+  text-align: center;
+  margin-bottom: 20px; /* Optional: Add margin bottom for spacing */
+}
+
+.other-list {
+   text-align: center;
+  margin-bottom: 20px;
+}
+
+#others {
+    padding: 30px 0;
+}
+
+.others-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-anchor: #bf7789;
+}
+
+.others-list div {
+    position: relative;
+    background: rgba(115, 90, 117, 0.3);
+    padding: 40px;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.others-list div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image fill the entire div */
+    height: 100%; /* Make the image fill the entire div */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: opacity 0.5s; /* Fade in transition */
+}
+
+.others-list div:hover img {
+    opacity: 0.5; /* Show the image on hover */
+}
+
+.others-list div p{
+    font-size: 15px;
+    margin: auto;
+}
+
+.others-list div i{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.others-list div h2{
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.others-list div a{
+    text-decoration: none;
+    color: #bf7789;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 30px; /* Add a semicolon here */
+    display: inline-block;
+}
+
+.others-list div:hover {
+    background: #4b3e67;
+    transform: translateY(-5px);
+}
+
+/* Apply the neon glow effect on hover */
+.others-list div:hover {
+    box-shadow: 0 0 5px #bf7789, 0 0 10px #bf7789, 0 0 15px #c1b6d4, 0 0 20px #c1b6d4, 0 0 35px #bf7789, 0 0 40px #0d1c2b, 0 0 50px #c1b6d4, 0 0 75px #c1b6d4;
+}
+
+.badge {
+    padding: 10px 20px;
+    background-color: #bf7789;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    position: center;
+    box-shadow: 0 2px 5px rgba(92, 70, 102, 0.445);        
+}
+
+.badge:hover {
+    background-color: #c1b6d4;
+    cursor: pointer;
+}
+
+/***Pagination***/
+
+.pagination .page-link {
+    color: #bf7789;
+    border-color: #bf7789;
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(193, 182, 212, 0.2);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgba(173, 136, 198, 0.2);
+    color: #bf7789;
+    border-color: #bf7789;
+}

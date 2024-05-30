@@ -1,0 +1,85 @@
+    /* Global styles */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: "Manuale", serif;
+    box-sizing: border-box;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar {
+    z-index: 3; /* Ensure navbar is above the overlay */
+}
+
+body {
+    position: relative;
+    background-image: url(https://i.pinimg.com/originals/74/be/41/74be41e91f7df6a76cf8be5f14e1da26.jpg);
+    color: rgba(150, 126, 118, 1);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure body is at least full viewport height */
+    margin: 0; /* Remove default body margin */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and transparency here */
+    pointer-events: none; /* Allows clicks to pass through the overlay */
+    z-index: -2;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-custom {
+    background-color: #1c0a81; /* Update to your desired color */
+}
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 100px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: lavender;
+            
+        }
+
+
+.navbar {
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+
+.col-lg-6 {
+    width: 1000px !important; /* Adjust the width to your desired size */
+    height: 300px !important; /* Adjust the height to your desired size */;
+    align:center;
+}
+
+
+
+
+
+
+
+
+
